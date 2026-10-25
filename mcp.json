@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "rene-descartes-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "DESCARTES",
+        "TARGET_CHAIN": "Solana",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "convert_algebraic_curve_to_geometry",
+          "description": "Maps polynomial algebraic equations to multi-dimensional geometric Cartesian curves",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "equation_str": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "equation_str"
+            ]
+          }
+        },
+        {
+          "name": "calculate_snell_descartes_refraction",
+          "description": "Computes exact light path bending across dielectric boundaries (n1 sin theta1 = n2 sin theta2)",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n1": {
+                "type": "number"
+              },
+              "n2": {
+                "type": "number"
+              },
+              "theta1_deg": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "n1",
+              "n2",
+              "theta1_deg"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
